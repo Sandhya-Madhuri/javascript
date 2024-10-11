@@ -10,6 +10,8 @@ _A mostly reasonable approach to CSS-in-JavaScript_
 1. [Inline](#inline)
 1. [Themes](#themes)
 1. [Specificity](#specificity)
+1. [Responsiveness](#responsiveness)
+1. [Common Pitfalls](#commonpitfalls)
 
 ## Naming
 
@@ -428,8 +430,6 @@ _A mostly reasonable approach to CSS-in-JavaScript_
   });
   ```
 
----
-
 CSS puns adapted from [Saijo George](https://saijogeorge.com/css-puns/).
 
 ## Specificity
@@ -530,6 +530,8 @@ const styles = {
   },
 };
 ```
+
+---
 
 ## Common Pitfalls
 
