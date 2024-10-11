@@ -11,7 +11,7 @@ _A mostly reasonable approach to CSS-in-JavaScript_
 1. [Themes](#themes)
 1. [Specificity](#specificity)
 1. [Responsiveness](#responsiveness)
-1. [Common Pitfalls](#commonpitfalls)
+1. [Common Pitfalls](#common pitfalls)
 
 ## Naming
 
