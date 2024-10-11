@@ -479,3 +479,133 @@ const styles = {
   },
 };
 ```
+
+## Responsiveness
+
+- Use media queries effectively by keeping them consistent across components.
+
+> Why? Inconsistent usage of media queries can lead to a disjointed user experience. Keeping media queries defined in a centralized location (like a theme) helps maintain uniformity.
+
+```js
+// bad
+const styles = {
+  container: {
+    width: "100%",
+    "@media (max-width: 600px)": {
+      width: "50%",
+    },
+  },
+};
+
+// good
+const styles = (theme) => ({
+  container: {
+    width: "100%",
+    [theme.breakpoints.small]: {
+      width: "50%",
+    },
+  },
+});
+```
+
+- Build responsive components using percentage-based widths and dynamic units.
+
+> Why? Responsive designs should scale smoothly across devices. Using flexible units like percentages or viewport-based units ensures components can adapt to various screen sizes.
+
+```js
+// bad
+const styles = {
+  container: {
+    width: "600px",
+  },
+};
+
+// good
+const styles = {
+  container: {
+    width: "100%",
+    maxWidth: "90vw",
+  },
+};
+```
+
+## Common Pitfalls
+
+- Overlapping styles: Be careful with conflicting styles in different parts of the component tree.
+
+> Why? Overlapping styles can result in conflicts that are hard to track down, especially in large applications.
+
+```js
+// bad
+const styles = {
+  button: {
+    color: "red",
+  },
+  container: {
+    button: {
+      color: "blue",
+    },
+  },
+};
+
+// good
+const styles = {
+  button: {
+    color: "red",
+  },
+  specialButton: {
+    color: "blue",
+  },
+};
+```
+
+- Style objects with conditional logic: Avoid placing too much logic into style objects.
+
+> Why? While it's possible to use JavaScript conditions to modify styles dynamically, overusing them can lead to cluttered, hard-to-read code.
+
+```js
+// bad
+const styles = (isActive) => ({
+  button: {
+    color: isActive ? "green" : "red",
+  },
+});
+
+// good
+const styles = {
+  buttonActive: {
+    color: "green",
+  },
+  buttonInactive: {
+    color: "red",
+  },
+};
+```
+
+- Forgetting to centralize breakpoints: Always define breakpoints and styles centrally.
+
+> Why? Managing breakpoints centrally helps in maintaining consistent responsiveness across your app and avoids duplicate logic.
+
+```js
+Copy code
+// bad
+const styles = {
+  button: {
+    width: '100%',
+    '@media (max-width: 500px)': {
+      width: '50%',
+    },
+  },
+};
+
+// good
+const styles = (theme) => ({
+  button: {
+    width: '100%',
+    [theme.breakpoints.small]: {
+      width: '50%',
+    },
+  },
+});
+
+```
