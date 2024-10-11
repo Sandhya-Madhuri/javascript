@@ -460,7 +460,7 @@ const styles = {
 };
 ```
 
--Avoid using !important.
+- Avoid using !important.
 
 > Why? It’s generally better to manage specificity through more precise selectors rather than forcing the style with !important. Using !important reduces maintainability by making it harder to override the styles later on.
 
@@ -479,6 +479,8 @@ const styles = {
   },
 };
 ```
+
+---
 
 ## Responsiveness
 
